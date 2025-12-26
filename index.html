@@ -1,175 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agustin Skiba Knives</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agustin Skiba Knives</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: #eee;
+        }
+
+        header {
+            background: #000;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 3px solid #c9a04b;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin-top: 0.5rem;
+            font-weight: 300;
+            color: #c9a04b;
+        }
+
+        .gallery {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border: 3px solid #c9a04b;
+            border-radius: 6px;
+        }
+
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 1.5rem;
+            color: #aaa;
+            margin-top: 2rem;
+            border-top: 3px solid #c9a04b;
+        }
+
+        footer a {
+            color: #c9a04b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
 </head>
 <body>
 
-<header>
-  <h1>Agustin Skiba Knives</h1>
-  <p class="sub">Handmade custom knives</p>
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#galeria">Galería</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-</header>
+    <header>
+        <h1>Agustin Skiba Knives</h1>
+        <h2>Handmade Custom Knives</h2>
+    </header>
 
-<section id="inicio" class="hero">
-  <h2>Piezas únicas hechas con pasión</h2>
-</section>
+    <section class="gallery">
+        <!-- Imágenes temporales -->
+        <img src="https://images.unsplash.com/photo-1595675024853-0f3ec909cdf8" alt="Knife 1">
+        <img src="https://images.unsplash.com/photo-1602526211148-d7f7af8edc83" alt="Knife 2">
+        <img src="https://images.unsplash.com/photo-1616627458533-6fba9a2dbd87" alt="Knife 3">
+        <img src="https://images.unsplash.com/photo-1616627868109-fa728cdb54f7" alt="Knife 4">
+        <img src="https://images.unsplash.com/photo-1596484551419-2945a3c2bb99" alt="Knife 5">
+        <img src="https://images.unsplash.com/photo-1616627866261-dd63d636ae99" alt="Knife 6">
+    </section>
 
-<section id="galeria">
-  <h2>Galería</h2>
-  <div id="productos-container" class="grid"></div>
-</section>
+    <footer>
+        <p>Contacto: <a href="mailto:agustinskiba@example.com">agustinskiba@example.com</a></p>
+        <p>Instagram: <a href="#">@agustinskiba_knives</a></p>
+    </footer>
 
-<section id="contacto" class="contacto">
-  <h2>Contacto</h2>
-  <p>Instagram: <a href="https://www.instagram.com/A.Skiba_knives" target="_blank">@A.Skiba_knives</a></p>
-</section>
-
-<footer>
-  © 2025 - Agustin Skiba Knives - Handmade Custom Knives
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
-body {
-  margin: 0;
-  background: #111;
-  color: #eee;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  background: #1a1a1a;
-  text-align: center;
-  padding: 20px;
-  border-bottom: 3px solid #900;
-}
-
-h1 {
-  margin: 0;
-  color: #e60000;
-  font-size: 30px;
-}
-
-.sub {
-  margin-top: 4px;
-  font-size: 14px;
-  color: #ccc;
-  font-style: italic;
-}
-
-nav a {
-  color: #eee;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 14px;
-}
-
-.hero {
-  height: 250px;
-  background-image: url('https://i.imgur.com/NEBQUEZ.jpeg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero h2 {
-  background: rgba(0,0,0,0.6);
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: 2px solid #900;
-}
-
-#galeria {
-  padding: 20px;
-  text-align: center;
-}
-
-.grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  padding: 20px;
-}
-
-.producto {
-  background: #222;
-  padding: 15px;
-  border-radius: 10px;
-  border: 2px solid #900;
-  transition: 0.3s;
-}
-
-.producto:hover {
-  transform: scale(1.05);
-}
-
-.producto img {
-  width: 100%;
-  border-radius: 8px;
-  border: 2px solid #900;
-}
-
-.contacto {
-  padding: 20px;
-  text-align: center;
-}
-
-footer {
-  background: #1a1a1a;
-  text-align: center;
-  padding: 10px;
-  border-top: 3px solid #900;
-  font-size: 12px;
-}
-fetch('productos.json')
-  .then(res => res.json())
-  .then(productos => {
-    const container = document.getElementById('productos-container');
-    productos.forEach(prod => {
-      const card = document.createElement('div');
-      card.className = 'producto';
-
-      const titulo = document.createElement('h3');
-      titulo.textContent = prod.nombre;
-      card.appendChild(titulo);
-
-      const img = document.createElement('img');
-      img.src = prod.imagen;
-      card.appendChild(img);
-
-      const desc = document.createElement('p');
-      desc.textContent = prod.descripcion;
-      card.appendChild(desc);
-
-      container.appendChild(card);
-    });
-  })
-  .catch(err => console.log(err));
-[
-  {
-    "nombre": "Hunter Pro",
-    "descripcion": "Acero al carbono y mango de madera dura.",
-    "imagen": "https://i.imgur.com/oGwFM4V.jpeg"
-  },
-  {
-    "nombre": "Outdoor Classic",
-    "descripcion": "Forjado para supervivencia y campo.",
-    "imagen": "https://i.imgur.com/ZlBVb6I.jpeg"
-  },
-  {
-    "nombre": "Bushcraft Steel",
-    "descripcion": "Hoja afilada para todo terreno.",
-    "imagen": "https://i.imgur.com/6wrab4G.jpeg"
-  }
-]
