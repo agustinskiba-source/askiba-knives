@@ -1,76 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Askiba Knives</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #111;
-            color: #eee;
-            text-align: center;
-        }
-        header {
-            padding: 20px;
-            background: #222;
-            border-bottom: 2px solid #900;
-        }
-        h1 {
-            margin: 0;
-            color: #e60000;
-        }
-        .producto {
-            margin: 40px auto;
-            width: 90%;
-            max-width: 600px;
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px solid #900;
-        }
-        img {
-            width: 100%;
-            border-radius: 8px;
-            border: 2px solid #900;
-        }
-        .boton {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 15px;
-            background: #900;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        footer {
-            padding: 15px;
-            background: #222;
-            margin-top: 30px;
-            font-size: 14px;
-            border-top: 2px solid #900;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agustin Skiba Knives</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Askiba Knives 🔪</h1>
-        <p>Cuchillos forjados con pasión</p>
-    </header>
+<header>
+  <h1>Agustin Skiba Knives</h1>
+  <p class="sub">Handmade custom knives</p>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
 
-    <section class="producto">
-        <h2>Modelo: Aura</h2>
-        <img src="https://via.placeholder.com/600x300/900000/ffffff?text=Foto+del+Cuchillo" alt="Cuchillo Aura">
-        <p>Filo perfecto, acero al carbono, mango de madera dura.</p>
-        <a class="boton" href="#">Consultar precio</a>
-    </section>
+<section id="inicio" class="hero">
+  <h2>Piezas únicas hechas con pasión</h2>
+</section>
 
-    <footer>
-        © 2025 Askiba Knives - Hecho en Argentina
-    </footer>
+<section id="galeria">
+  <h2>Galería</h2>
+  <div id="productos-container" class="grid"></div>
+</section>
 
+<section id="contacto" class="contacto">
+  <h2>Contacto</h2>
+  <p>Instagram: <a href="https://www.instagram.com/A.Skiba_knives" target="_blank">@A.Skiba_knives</a></p>
+</section>
+
+<footer>
+  © 2025 - Agustin Skiba Knives - Handmade Custom Knives
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
+body {
+  margin: 0;
+  background: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 3px solid #900;
+}
+
+h1 {
+  margin: 0;
+  color: #e60000;
+  font-size: 30px;
+}
+
+.sub {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #ccc;
+  font-style: italic;
+}
+
+nav a {
+  color: #eee;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.hero {
+  height: 250px;
+  background-image: url('https://i.imgur.com/NEBQUEZ.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h2 {
+  background: rgba(0,0,0,0.6);
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #900;
+}
+
+#galeria {
+  padding: 20px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  padding: 20px;
+}
+
+.producto {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #900;
+  transition: 0.3s;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+}
+
+.producto img {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #900;
+}
+
+.contacto {
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 10px;
+  border-top: 3px solid #900;
+  font-size: 12px;
+}
+fetch('productos.json')
+  .then(res => res.json())
+  .then(productos => {
+    const container = document.getElementById('productos-container');
+    productos.forEach(prod => {
+      const card = document.createElement('div');
+      card.className = 'producto';
+
+      const titulo = document.createElement('h3');
+      titulo.textContent = prod.nombre;
+      card.appendChild(titulo);
+
+      const img = document.createElement('img');
+      img.src = prod.imagen;
+      card.appendChild(img);
+
+      const desc = document.createElement('p');
+      desc.textContent = prod.descripcion;
+      card.appendChild(desc);
+
+      container.appendChild(card);
+    });
+  })
+  .catch(err => console.log(err));
+[
+  {
+    "nombre": "Hunter Pro",
+    "descripcion": "Acero al carbono y mango de madera dura.",
+    "imagen": "https://i.imgur.com/oGwFM4V.jpeg"
+  },
+  {
+    "nombre": "Outdoor Classic",
+    "descripcion": "Forjado para supervivencia y campo.",
+    "imagen": "https://i.imgur.com/ZlBVb6I.jpeg"
+  },
+  {
+    "nombre": "Bushcraft Steel",
+    "descripcion": "Hoja afilada para todo terreno.",
+    "imagen": "https://i.imgur.com/6wrab4G.jpeg"
+  }
+]
